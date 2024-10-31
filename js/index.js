@@ -72,15 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const form = document.getElementById('orderForm');
-    
-//     form.addEventListener('submit', function(event) {
-//         event.preventDefault();
-//         window.location.href = 'confirmation.html';
-//     });
-    
-// });
 
 document.addEventListener('visibilitychange', function() {
     if (document.visibilityState === 'visible') {
@@ -100,28 +91,6 @@ if ('onfreeze' in document) {
         console.log('Page is being resumed');
     });
 }
-
-// document.addEventListener('DOMContentLoaded', function() {
-    const addProductCheckbox = document.getElementById('add-optical-sight');
-    const discountedPriceElement = document.querySelector('.discounted-price');
-    const originalPrice = 5899; // Original price of the main product
-    const additionalProductPrice = 900; // Price of the optical sight
-    let totalPrice = 5899;
-    let additionalValue = ' - ';
-
-
-
-    addProductCheckbox.addEventListener('change', function() {
-        totalPrice = originalPrice;
-        if (this.checked) {
-            additionalValue = ' + '
-            totalPrice += additionalProductPrice;
-        }
-        // Update the price displayed in the main order section
-        // You'll need to add an id or class to the main price element to select it here
-        document.querySelector('.order-price__new2 .price-value').textContent = totalPrice + 'грн';
-    });
-// });
 
 const TOKEN = "7872932457:AAGFCkJlFRBvKav1uA8zfiKRd1bKMf9TETk";
 const CHAT_ID = "1067816217";
