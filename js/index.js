@@ -35,26 +35,22 @@ document.getElementById('scrollButton').addEventListener('click', function() {
                                         // СЛАЙДЕР
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slides img');
+const slidesContainer = document.querySelector('.slides');
 
 function showSlide(slideIndex) {
-    // Перевіряємо, що індекс не виходить за межі
-    if (slideIndex >= slides.length) {
-        currentSlide = 0; // Повертаємось до першого слайда
-    } else if (slideIndex < 0) {
-        currentSlide = slides.length - 1; // Повертаємось до останнього слайда
-    } else {
-        currentSlide = slideIndex;
-    }
-
-    // Рахуємо ширину слайдера і зсуваємо всі зображення
+    currentSlide = (slideIndex + slides.length) % slides.length;
     const slideWidth = slides[0].clientWidth;
-    document.querySelector('.slides').style.transform = `translateX(-${slideWidth * currentSlide}px)`;
+    slidesContainer.style.transform = `translateX(-${slideWidth * currentSlide}px)`;
 }
+
 function moveSlide(direction) {
     showSlide(currentSlide + direction);
 }
+
 // Показуємо перший слайд при завантаженні сторінки
 showSlide(0);
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const reviewCards = document.querySelectorAll('.review-card');
@@ -93,7 +89,7 @@ if ('onfreeze' in document) {
 }
 
 const TOKEN = "7872932457:AAGFCkJlFRBvKav1uA8zfiKRd1bKMf9TETk";
-const CHAT_ID = "1067816217";
+const CHAT_ID = "-4587915644";
 const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 const success = document.getElementById('success');
 
@@ -102,8 +98,6 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
 
     const nameField = this.name;
     const phoneField = this.phone;
-    const priceField = totalPrice
-    const optValue = additionalValue
 
     const namePattern = /^[A-Za-zА-Яа-яЁёІіЇїЄє\s]+$/;
     const phonePattern = /^(\+?380|0)\d{9}$/;
@@ -119,12 +113,10 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
         return;
     }
 
-    const message = `<b>Замовлення HATSAN</b>\n` +
+    const message = `<b>Замовлення BEEMAN</b>\n` +
                     `----------------------\n` +
                     `<b>Замовник: </b> ${nameField.value}\n` +
-                    `<b>Номер: </b> ${phoneField.value}\n` +
-                    `<b>Оптичний приціл: </b> ${optValue}\n` +
-                    `<b>Ціна: </b> ${priceField} грн`; 
+                    `<b>Номер: </b> ${phoneField.value}\n` 
 
     // Send request using fetch
     fetch(URI_API, {
@@ -158,16 +150,4 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
         console.log("The end");
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const checkbox = document.getElementById('add-optical-sight');
-    const checkmark = checkbox.nextElementSibling;
-    
-    checkbox.addEventListener('change', function() {
-        if (this.checked) {
-            checkmark.style.animation = 'none';
-            setTimeout(() => {
-                checkmark.style.animation = 'checkmark 0.3s ease-in-out';
-            }, 10);
-        }
-    });
-});
+

@@ -100,10 +100,10 @@
         max-width: 200px;
     }
     #countdown {
-        font-size: 60px; /* Розмір шрифту для таймера */
+        font-size: 54px; /* Розмір шрифту для таймера */
     }
     #time-labels span{
-        font-size: 26px; /* Розмір тексту підписів */
+        font-size: 20px; /* Розмір тексту підписів */
     }
     .add-product_description {
         display: none;
@@ -163,7 +163,6 @@
     }
     .order-img {
         width: 100%;
-        margin-bottom: 25px;
     }
     .order-price__new .price-value {
         font-size: 32px;
@@ -178,7 +177,7 @@
         width: 260px;
     }
     #countdown {
-        font-size: 50px; /* Розмір шрифту для таймера */
+        font-size: 40px; /* Розмір шрифту для таймера */
     }
     #order-form h2 {
         font-size: 18px;
